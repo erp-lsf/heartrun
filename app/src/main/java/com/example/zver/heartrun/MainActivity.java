@@ -2,6 +2,8 @@ package com.example.zver.heartrun;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -12,12 +14,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.view.View;
 import android.media.MediaPlayer;
+import android.util.Log;
+import android.media.MediaMetadataRetriever;
+
 
 public class MainActivity extends AppCompatActivity {
 
     protected int heartRate = 80;
-    private ArrayList<Song> songList;
-    private ListView songView;
+    protected MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,46 +33,23 @@ public class MainActivity extends AppCompatActivity {
 
         hr.setText("" + heartRate);
 
-        // start
-        songView = (ListView)findViewById(R.id.song_list);
+        mediaPlayer = MediaPlayer.create(this, R.raw.song);
+    }
+
+    public void toggleMusic(View v) {
+        mediaPlayer.start();
+        MediaMetadataRetriever metaRetriever = new MediaMetadataRetriever();
+
+//        URI
+//        Log.w("Heartrun", fileURL.getPath());
+
+//        metaRetriever.setDataSource(fileURL.getPath());
+//        String artist =  metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_ARTIST);
+//        String title = metaRetriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_TITLE);
 //
-        songList = new ArrayList<Song>();
-
-        getSongList();
-
-        Collections.sort(songList, new Comparator<Song>(){
-            public int compare(Song a, Song b){
-                return a.getTitle().compareTo(b.getTitle());
-            }
-        });
-    }
-
-    protected void initPlayer() {
-//        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.song);
-    }
-
-    public void getSongList() {
-        ContentResolver musicResolver = getContentResolver();
-        Uri musicUri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
-        Cursor musicCursor = musicResolver.query(musicUri, null, null, null, null);
-
-        if(musicCursor!=null && musicCursor.moveToFirst()){
-            //get columns
-            int titleColumn = musicCursor.getColumnIndex
-                    (android.provider.MediaStore.Audio.Media.TITLE);
-            int idColumn = musicCursor.getColumnIndex
-                    (android.provider.MediaStore.Audio.Media._ID);
-            int artistColumn = musicCursor.getColumnIndex
-                    (android.provider.MediaStore.Audio.Media.ARTIST);
-            //add songs to list
-            do {
-                long thisId = musicCursor.getLong(idColumn);
-                String thisTitle = musicCursor.getString(titleColumn);
-                String thisArtist = musicCursor.getString(artistColumn);
-                songList.add(new Song(thisId, thisTitle, thisArtist));
-            }
-            while (musicCursor.moveToNext());
-        }
+//        TextView st;
+//        st = (TextView)findViewById(R.id.song_title);
+//        st.setText(title);
     }
 
     public void rateUp(View v) {
