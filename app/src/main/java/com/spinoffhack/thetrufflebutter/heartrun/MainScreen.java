@@ -62,7 +62,6 @@ public class MainScreen extends AppCompatActivity {
       
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -84,9 +83,6 @@ public class MainScreen extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
-    
-  
 
     /**
      * A {@link FragmentPagerAdapter} that returns a fragment corresponding to

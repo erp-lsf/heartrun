@@ -18,14 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ActivityOne"
-            android:label="@string/title_activity_activity_one"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".Activity_two"
-            android:label="@string/title_activity_activity_two"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
