@@ -7,7 +7,9 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.zver.heartrun.MainActivity">
+    tools:context="com.example.zver.heartrun.MainActivity"
+    android:background="#66b2d3"
+    android:clickable="false">
 
     <TextView
         android:layout_width="wrap_content"
@@ -17,7 +19,7 @@
         android:id="@+id/textView"
         android:layout_marginTop="50dp"
         android:textSize="120dp"
-        android:textColor="#71ee92"
+        android:textColor="#1647b2"
         android:editable="true"
         android:enabled="true"
         android:layout_alignParentTop="true"
@@ -34,7 +36,8 @@
         android:onClick="rateUp"
         android:layout_alignTop="@+id/textView"
         android:layout_toEndOf="@+id/textView"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"
+        android:background="#3468d9" />
 
     <Button
         android:layout_width="100dp"
@@ -47,7 +50,8 @@
         android:nestedScrollingEnabled="false"
         android:clickable="true"
         android:layout_alignTop="@+id/button"
-        android:layout_toStartOf="@+id/textView" />
+        android:layout_toStartOf="@+id/textView"
+        android:background="#3468d9" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -56,17 +60,45 @@
         android:text="SongTitle"
         android:id="@+id/textView2"
         android:textSize="60dp"
-        android:layout_above="@+id/seekBar"
+        android:layout_above="@+id/progressBar"
         android:layout_centerHorizontal="true" />
 
-    <SeekBar
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="300dp"
+        android:layout_height="30dp"
+        android:id="@+id/progressBar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="41dp"
-        android:minWidth="250dp"
-        android:minHeight="30dp" />
+        android:layout_marginBottom="43dp"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton"
+        android:background="@android:drawable/ic_media_play"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="20dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton2"
+        android:background="@android:drawable/ic_media_previous"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="40dp"
+        android:layout_toEndOf="@+id/button2" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:background="@android:drawable/ic_media_next"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageButton" />
+
 
 </RelativeLayout>
